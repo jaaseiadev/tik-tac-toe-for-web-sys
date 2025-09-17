@@ -14,7 +14,12 @@ const Game: React.FC = () => {
   }
 
   function jumpTo(nextMove: number) {
-    setCurrentMove(nextMove);
+    if (nextMove === 0) {
+      setHistory([Array(9).fill(null)]);
+      setCurrentMove(0);
+    } else {
+      setCurrentMove(nextMove);
+    }
   }
 
   const moves = history.map((squares, move) => {
